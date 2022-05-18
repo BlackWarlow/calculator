@@ -6,8 +6,8 @@ import wolframalpha as wa
 from kivy.app import App
 
 # This restrict the kivy version i.e
-# below this kivy version you cannot 
-# use the app or software 
+# below this kivy version you cannot
+# use the app or software
 kivy.require('2.0.0')
 
 from kivy.uix.gridlayout import GridLayout
@@ -15,8 +15,8 @@ from kivy.config import Config
 
 # Setting size to resizable
 Config.set('graphics', 'resizable', 1)
-## Config.set('graphics', 'width', '400')
-## Config.set('graphics', 'height', '400')
+Config.set('graphics', 'minimum_height', '600')
+# We don`t set minimum_width for additional bug
 
 # WolframAlpha Client object
 api_key = 'WY8PAY-HGU2JQHEXK'
@@ -38,7 +38,7 @@ class CalcGridLayout(GridLayout):
                 # Solve formula and display it in entry
                 # which is pointed at by display
                 self.display.text = str(eval(calculation))
-            except (SyntaxError, NameError, TypeError, ZeroDivisionError):
+            except (SyntaxError, NameError, TypeError): # ZeroDivisionError - Another bug
                 result = client.query(input=calculation, params=params)
                 try:
                     self.display.text = next(result.results).text
