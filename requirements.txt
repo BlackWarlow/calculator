@@ -1,2 +1,4 @@
 kivy >= 2.0.0
 wolframalpha
+pyinstaller
+Pillow==8.1.0

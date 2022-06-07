@@ -10,8 +10,8 @@ from kivy.app import App
 # use the app or software
 kivy.require('2.0.0')
 
-from kivy.uix.gridlayout import GridLayout
 from kivy.config import Config
+from kivy.uix.gridlayout import GridLayout
 
 # Setting size to resizable
 Config.set('graphics', 'resizable', 1)
